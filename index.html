@@ -1,0 +1,20 @@
+<!doctype html>
+<html id="html" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="singleton.js"></script>
+  </head>
+  <body>
+    <script>
+      document.body.style.margin = '0px';
+      document.body.style.display = 'flex';
+      document.body.style.flexDirection = 'column';      
+      const player = player_factory({src:'http://wcrsfm.org/audio/play/12155',show:'streaming',txt:'WCRS live stream'});
+      document.body.appendChild(player.ui);
+      document.body.style.fontSize = '2em';
+      [{src:'http://wcrsfm.org/audio/play/12155',show:'one',txt:'WCRS live stream'},{src:'http://wcrsfm.org/audio/play/12157',show:'two',txt:'WCRS live stream'}].map((obj)=>document.body.appendChild(player.link_wrapper(obj)))
+    </script>
+  </body>
+</html>
