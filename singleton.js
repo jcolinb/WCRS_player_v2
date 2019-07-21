@@ -76,6 +76,7 @@ const player_factory = ({src,show,txt}) => {
   const pause = () => (player.pause() || true) && playing.set(false)
 
 // functions to control progress bar
+
   const update_progress = (e) => {
     const divide = Math.floor((e.target.buffered.end(0)/e.target.duration)*100);
 
@@ -91,8 +92,13 @@ const player_factory = ({src,show,txt}) => {
         && update_progress(e)
         && update_marker(e)
 
+  const scrub = (e) => (Math.floor(e.offsetX/e.target.clientWidth*player.duration)<player.buffered.end(0))
+        && (player.currentTime = (Math.floor(e.offsetX/e.target.clientWidth*player.duration)))
+
+
   button.addEventListener('click',()=>(playing.get()) ? pause() : play())
   player.addEventListener('timeupdate',update_progress_bar)
+  progress.addEventListener('click',scrub)
 
 // wrapper function for links to load player. Available as property on player object
   const link_wrapper = ({src,show,txt}) => {
