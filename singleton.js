@@ -23,7 +23,7 @@ const player_factory = ({src,show,txt}) => {
   frame.style.zIndex = '1';
   frame.style.color = 'white';  
   frame.style.width = '100%';
-  frame.style.height = '20%';
+  frame.style.height = '100%';
   frame.style.display = 'flex';
   frame.style.flexDirection = 'column';
   frame.style.justifyContent = 'space-between';
