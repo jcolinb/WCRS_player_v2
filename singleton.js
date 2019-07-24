@@ -94,7 +94,7 @@ const player_factory = ({src,show,txt}) => {
 
   const scrub = (e) => (Math.floor(e.offsetX/e.target.clientWidth*player.duration)<player.buffered.end(0))
         && (player.currentTime = (Math.floor(e.offsetX/e.target.clientWidth*player.duration)))
-
+        && console.log(Math.floor(e.offsetX/e.target.clientWidth*player.duration)))
 
   button.addEventListener('click',()=>(playing.get()) ? pause() : play())
   player.addEventListener('timeupdate',update_progress_bar)
